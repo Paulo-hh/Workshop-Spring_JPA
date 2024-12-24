@@ -1,20 +1,25 @@
 package com.example.course.resources;
 
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.course.entities.User;
+import com.example.course.repositories.UserRepository;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@GetMapping
-	public ResponseEntity<User> findAll(){
-		User u = new User(1L, "Maria", "Maria@gmail.com", "3844801", "9383909");
-		return ResponseEntity.ok().body(u);
+	public List<User> findAll(){
+		return userRepository.findAll();
 	}
 	
 }
