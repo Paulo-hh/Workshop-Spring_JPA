@@ -1,2 +1,2 @@
-INSERT INTO users_tb (name, email, phone, password) VALUES ('Maria Brown', 'maria@gmail.com', '98888888', '123456');
-INSERT INTO users_tb (name, email, phone, password) VALUES ('Alex green', 'alex@gmail.com', '97777777', '123456');
+INSERT INTO tb_user (name, email, phone, password) VALUES ('Maria Brown', 'maria@gmail.com', '98888888', '123456');
+INSERT INTO tb_user (name, email, phone, password) VALUES ('Alex green', 'alex@gmail.com', '97777777', '123456');
