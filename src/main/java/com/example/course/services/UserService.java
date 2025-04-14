@@ -1,6 +1,8 @@
 package com.example.course.services;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.course.entities.User;
 import com.example.course.repositories.UserRepository;
+import com.example.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -22,7 +25,7 @@ public class UserService {
 	
 	@Transactional
 	public User findById(Long id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	@Transactional
